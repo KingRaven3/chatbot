@@ -1,5 +1,5 @@
 from pyrogram import Client , filters
-from ai import getmsg
+from ai import getmsg , getpeasant
 import os
 
 bot =  Client(
@@ -14,6 +14,13 @@ def ryu(_,m):
     prompt = m.text
     reply = getmsg(prompt)
     m.reply(reply)
+
+@bot.on_message(filters.regex("ryu"))
+def pes(_,m):
+    if not m.from_user.id == 5704299476:
+        prompt = m.text
+        reply = getpeasant(prompt)
+        m.reply(reply)
 
 
 bot.run()
