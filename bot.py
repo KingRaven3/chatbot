@@ -22,7 +22,6 @@ def pes(_,m):
         prompt = m.text
         reply = getpeasant(prompt)
         m.reply(reply)
-        time.sleep(1)
 
 
 bot.run()
