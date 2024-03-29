@@ -1,6 +1,7 @@
 from pyrogram import Client , filters
 from ai import getmsg , getpeasant
 import os
+import time
 
 bot =  Client(
     "ryu",
@@ -15,12 +16,13 @@ def ryu(_,m):
     reply = getmsg(prompt)
     m.reply(reply)
 
-@bot.on_message(filters.regex("ryu"))
+@bot.on_message(filters.text)
 def pes(_,m):
     if not m.from_user.id == 5704299476:
         prompt = m.text
         reply = getpeasant(prompt)
         m.reply(reply)
+        time.sleep(1)
 
 
 bot.run()
